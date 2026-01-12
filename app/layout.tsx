@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import { Rajdhani } from "next/font/google";
+import WhatsAppButton from "./components/WhatsAppButton";
+
 
 import "./globals.css";
 
@@ -28,7 +30,7 @@ const rajdhani = Rajdhani({
 });
 
 export const metadata: Metadata = {
-  title: "APAS",
+  title: "APAS - Chapas decorativas",
   description: "APAS - Chapas decorativas",
 };
 
@@ -43,6 +45,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${raceSport.variable} ${rajdhani.variable} antialiased`}
       >
         {children}
+        <WhatsAppButton />
       </body>
     </html>
   );

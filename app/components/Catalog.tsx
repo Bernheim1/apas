@@ -97,18 +97,16 @@ export default function Catalog({ images, metadata }: CatalogProps) {
 
   return (
     <>
-       <section id="catalogo" className="min-h-screen bg-brand-cream py-24 px-6">
+      <section id="catalogo" className="min-h-screen bg-brand-cream py-12 md:py-24 px-6">
         <div className="max-w-7xl mx-auto">
           {/* Header del catálogo */}
-          <div className="text-center mb-16">
-            <div className="inline-block mb-4">
-              <div className="h-1 w-20 bg-brand-red mx-auto mb-6 rounded-[25px]"></div>
-              <h2 className="font-race text-5xl md:text-6xl text-brand-brown tracking-wider mb-4">
+          <div className="text-center mb-12 md:mb-16">
+            <div className="w-full md:inline-block bg-brand-brown px-6 md:px-12 py-4 md:py-6 rounded-[25px] shadow-xl">
+              <h2 className="font-race text-3xl md:text-5xl lg:text-6xl text-brand-cream tracking-wider">
                 catálogo
               </h2>
-              <div className="h-1 w-20 bg-brand-yellow mx-auto mt-6 rounded-[25px]"></div>
             </div>
-            <p className="text-brand-brown/70 text-lg max-w-2xl mx-auto mt-8">
+            <p className="text-brand-brown/70 text-base md:text-lg max-w-2xl mx-auto mt-6 md:mt-8 font-rajdhani px-4">
               Descubre nuestra colección exclusiva de obras de arte
             </p>
           </div>

@@ -37,20 +37,20 @@ export default function Colocar() {
   ];
 
   return (
-    <section id="como-colocar" className="min-h-screen bg-[#241917] py-24 px-6">
+    <section id="como-colocar" className="min-h-screen bg-[#241917] py-12 md:py-24 px-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-<div className="text-center mb-16">
-  <div className="inline-block bg-brand-yellow px-6 md:px-12 py-6 md:py-8 rounded-[25px] shadow-xl">
-    <h2 className="font-race text-4xl md:text-5xl lg:text-6xl text-brand-brown tracking-wider">
-      cómo colocar
-    </h2>
-  </div>
-  <p className="text-brand-cream/70 text-lg max-w-2xl mx-auto mt-8 font-rajdhani px-4">
-    Sigue estos simples pasos para instalar tu obra de arte de manera
-    segura y profesional
-  </p>
-</div>
+        <div className="text-center mb-12 md:mb-16">
+          <div className="w-full md:inline-block bg-brand-yellow px-6 md:px-12 py-4 md:py-6 rounded-[25px] shadow-xl">
+            <h2 className="font-race text-3xl md:text-5xl lg:text-6xl text-brand-brown tracking-wider">
+              cómo colocarlas ?
+            </h2>
+          </div>
+          <p className="text-brand-cream/70 text-base md:text-lg max-w-2xl mx-auto mt-6 md:mt-8 font-rajdhani px-4">
+            Sigue estos simples pasos para instalar tu obra de arte de manera
+            segura y profesional
+          </p>
+        </div>
 
         {/* Cards Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -84,9 +84,9 @@ export default function Colocar() {
                 <h5 className="mb-4 text-2xl font-bold tracking-tight font-race">
                   {step.title}
                 </h5>
-                    <p className="mb-6 leading-relaxed flex-grow text-lg font-rajdhani font-normal tracking-wide">
-                    {step.description}
-                    </p>
+                <p className="mb-6 leading-relaxed flex-grow text-lg font-rajdhani font-normal tracking-wide">
+                  {step.description}
+                </p>
               </div>
             </div>
           ))}
@@ -97,9 +97,17 @@ export default function Colocar() {
           <p className="text-brand-cream/60 text-sm mb-4">
             ¿Necesitas ayuda con la instalación?
           </p>
-          <button className="bg-brand-red hover:bg-brand-yellow text-white hover:text-brand-brown font-race tracking-wider py-3 px-8 rounded-[25px] transition-all duration-300 uppercase text-sm shadow-lg hover:shadow-xl transform hover:scale-105">
-            Contáctanos
-          </button>
+            <a
+              href="https://wa.me/5491234567890?text=Hola!%20Me%20interesan%20los%20cuadros%20decorativos%20de%20APAS%20%F0%9F%8E%A8"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-brand-yellow hover:bg-brand-red text-brand-brown hover:text-white
+                px-8 py-3 rounded-[25px] transition-all
+                font-race text-sm uppercase tracking-wider
+                hover:scale-105"
+            >
+              escribinos
+            </a>
         </div>
       </div>
     </section>

@@ -64,7 +64,9 @@ export default function Navbar() {
             </a>
 
             <a
-              href="#contacto"
+              href="https://wa.me/5491234567890?text=Hola!%20Me%20interesan%20los%20cuadros%20decorativos%20de%20APAS%20%F0%9F%8E%A8"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-brand-yellow hover:bg-brand-red text-brand-brown hover:text-white
                 px-8 py-3 rounded-[25px] transition-all
                 font-race text-sm uppercase tracking-wider
