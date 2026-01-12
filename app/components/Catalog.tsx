@@ -102,11 +102,11 @@ export default function Catalog({ images, metadata }: CatalogProps) {
           {/* Header del catálogo */}
           <div className="text-center mb-16">
             <div className="inline-block mb-4">
-              <div className="h-1 w-20 bg-brand-red mx-auto mb-6"></div>
+              <div className="h-1 w-20 bg-brand-red mx-auto mb-6 rounded-[25px]"></div>
               <h2 className="font-race text-5xl md:text-6xl text-brand-brown tracking-wider mb-4">
                 catálogo
               </h2>
-              <div className="h-1 w-20 bg-brand-yellow mx-auto mt-6"></div>
+              <div className="h-1 w-20 bg-brand-yellow mx-auto mt-6 rounded-[25px]"></div>
             </div>
             <p className="text-brand-brown/70 text-lg max-w-2xl mx-auto mt-8">
               Descubre nuestra colección exclusiva de obras de arte
@@ -122,7 +122,7 @@ export default function Catalog({ images, metadata }: CatalogProps) {
                   placeholder="Buscar por título o descripción..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full px-6 py-4 pr-12 rounded-full border-2 border-brand-brown/20 focus:border-brand-yellow focus:outline-none bg-white text-brand-brown placeholder:text-brand-brown/40 transition-colors"
+                  className="w-full px-6 py-4 pr-12 rounded-[25px] border-2 border-brand-brown/20 focus:border-brand-yellow focus:outline-none bg-white text-brand-brown placeholder:text-brand-brown/40 transition-colors"
                 />
                 <div className="absolute right-4 top-1/2 -translate-y-1/2">
                   <svg
@@ -165,7 +165,7 @@ export default function Catalog({ images, metadata }: CatalogProps) {
                   <button
                     key={tag}
                     onClick={() => toggleTag(tag)}
-                    className={`px-4 py-2 rounded-full font-medium transition-all duration-300 transform hover:scale-105 ${
+                    className={`px-4 py-2 rounded-[25px] font-medium transition-all duration-300 transform hover:scale-105 ${
                       isSelected
                         ? `${getTagColor(tag)} shadow-lg ring-2 ring-brand-brown`
                         : "bg-white text-brand-brown/70 hover:bg-brand-brown/10 border border-brand-brown/20"
@@ -202,7 +202,7 @@ export default function Catalog({ images, metadata }: CatalogProps) {
                 >
                   {/* Card container - altura fija */}
                   <div
-                    className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 flex flex-col h-full cursor-pointer"
+                    className="bg-white rounded-[25px] overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 flex flex-col h-full cursor-pointer"
                     onClick={() => setSelectedImage(img)}
                   >
                     {/* Imagen del producto - altura fija */}
@@ -223,7 +223,7 @@ export default function Catalog({ images, metadata }: CatalogProps) {
                             : "opacity-0 scale-75"
                         }`}
                       >
-                        <div className="bg-brand-yellow text-brand-brown p-2 rounded-full shadow-lg">
+                        <div className="bg-brand-yellow text-brand-brown p-2 rounded-[25px] shadow-lg">
                           <svg
                             className="w-5 h-5"
                             fill="none"
@@ -243,7 +243,7 @@ export default function Catalog({ images, metadata }: CatalogProps) {
 
                     {/* Badge centrado con número */}
                     <div className="flex justify-center -mt-5 relative z-10">
-                      <div className="bg-brand-red text-white font-race text-base px-6 py-2 rounded-full shadow-lg border-4 border-white group-hover:bg-brand-yellow group-hover:text-brand-brown transition-all duration-300">
+                      <div className="bg-brand-red text-white font-race text-base px-6 py-2 rounded-[25px] shadow-lg border-4 border-white group-hover:bg-brand-yellow group-hover:text-brand-brown transition-all duration-300">
                         # {String(originalIndex + 1).padStart(3, "0")}
                       </div>
                     </div>
@@ -268,7 +268,7 @@ export default function Catalog({ images, metadata }: CatalogProps) {
               </p>
               <button
                 onClick={clearFilters}
-                className="bg-brand-red hover:bg-brand-yellow text-white hover:text-brand-brown font-race tracking-wider py-3 px-6 rounded-md transition-all duration-300 uppercase text-sm"
+                className="bg-brand-red hover:bg-brand-yellow text-white hover:text-brand-brown font-race tracking-wider py-3 px-6 rounded-[25px] transition-all duration-300 uppercase text-sm"
               >
                 Limpiar Filtros
               </button>
@@ -293,13 +293,13 @@ export default function Catalog({ images, metadata }: CatalogProps) {
           onClick={() => setSelectedImage(null)}
         >
           <div
-            className="relative w-full max-w-5xl max-h-[95vh] bg-white rounded-lg overflow-hidden shadow-2xl flex flex-col"
+            className="relative w-full max-w-5xl max-h-[95vh] bg-white rounded-[25px] overflow-hidden shadow-2xl flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Botón cerrar */}
             <button
               onClick={() => setSelectedImage(null)}
-              className="absolute top-4 right-4 z-20 bg-brand-red hover:bg-brand-yellow text-white hover:text-brand-brown w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg"
+              className="absolute top-4 right-4 z-20 bg-brand-red hover:bg-brand-yellow text-white hover:text-brand-brown w-10 h-10 rounded-[25px] flex items-center justify-center transition-all duration-300 shadow-lg"
             >
               ✕
             </button>
@@ -321,10 +321,10 @@ export default function Catalog({ images, metadata }: CatalogProps) {
                 {/* Detalles */}
                 <div className="p-6 md:p-12 flex flex-col justify-center bg-brand-cream">
                   <div className="mb-6">
-                    <div className="inline-block bg-brand-red text-white font-race text-sm px-4 py-2 rounded-full mb-4 shadow-lg">
+                    <div className="inline-block bg-brand-red text-white font-race text-sm px-4 py-2 rounded-[25px] mb-4 shadow-lg">
                       # {String(images.indexOf(selectedImage) + 1).padStart(3, "0")}
                     </div>
-                    <div className="h-1 w-16 bg-brand-red mb-6"></div>
+                    <div className="h-1 w-16 bg-brand-red mb-6 rounded-[25px]"></div>
                     <p className="text-brand-brown/80 text-base md:text-lg mb-6 leading-relaxed">
                       {getImageData(selectedImage).description}
                     </p>
@@ -340,7 +340,7 @@ export default function Catalog({ images, metadata }: CatalogProps) {
                         {getImageData(selectedImage).tags.map((tag) => (
                           <span
                             key={tag}
-                            className={`text-xs md:text-sm px-3 py-1.5 rounded-full font-medium cursor-pointer hover:scale-105 transition-transform ${getTagColor(
+                            className={`text-xs md:text-sm px-3 py-1.5 rounded-[25px] font-medium cursor-pointer hover:scale-105 transition-transform ${getTagColor(
                               tag
                             )}`}
                             onClick={(e) => {
@@ -357,7 +357,7 @@ export default function Catalog({ images, metadata }: CatalogProps) {
                     </div>
                   )}
 
-                  <button className="w-full bg-brand-red hover:bg-brand-yellow text-white hover:text-brand-brown font-race tracking-wider py-3 md:py-4 px-6 md:px-8 rounded-md transition-all duration-300 uppercase text-xs md:text-sm shadow-lg">
+                  <button className="w-full bg-brand-red hover:bg-brand-yellow text-white hover:text-brand-brown font-race tracking-wider py-3 md:py-4 px-6 md:px-8 rounded-[25px] transition-all duration-300 uppercase text-xs md:text-sm shadow-lg">
                     Consultar Disponibilidad
                   </button>
                 </div>

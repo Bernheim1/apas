@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
+import { Rajdhani } from "next/font/google";
+
 import "./globals.css";
 
 const geistSans = Geist({
@@ -19,9 +21,15 @@ const raceSport = localFont({
   display: "swap",
 });
 
+const rajdhani = Rajdhani({
+  weight: ['300', '400', '500'],
+  variable: "--font-rajdhani",
+  subsets: ["latin"],
+});
+
 export const metadata: Metadata = {
   title: "APAS",
-  description: "APA - Chapas decorativas",
+  description: "APAS - Chapas decorativas",
 };
 
 export default function RootLayout({
@@ -32,7 +40,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${raceSport.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${raceSport.variable} ${rajdhani.variable} antialiased`}
       >
         {children}
       </body>

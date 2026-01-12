@@ -16,6 +16,7 @@ module.exports = {
       },
       fontFamily: {
         race: ["var(--font-race)"],
+        rajdhani: ["var(--font-rajdhani)"],
       },
     },
   },

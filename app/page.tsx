@@ -1,5 +1,7 @@
 import Hero from "./components/Hero";
 import Catalog from "./components/Catalog";
+import Colocar from "./components/Colocar";
+import Navbar from "./components/Navbar";
 import fs from "fs";
 import path from "path";
 
@@ -23,8 +25,10 @@ export default function Home() {
 
   return (
     <>
+      <Navbar />
       <Hero />
       <Catalog images={images} metadata={metadata} />
+      <Colocar />
     </>
   );
 }
