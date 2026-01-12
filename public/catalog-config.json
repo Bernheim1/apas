@@ -1,0 +1,32 @@
+{
+  "001.jpg": {
+    "title": "Obra 001",
+    "tags": ["Abstracto", "Moderno", "Colorido"],
+    "description": "Obra original única con estilo contemporáneo"
+  },
+  "002.jpg": {
+    "title": "Obra 002",
+    "tags": ["Expresionista", "Vibrante", "Arte"],
+    "description": "Expresión artística con técnicas mixtas"
+  },
+  "005.jpg": {
+    "title": "Obra 005",
+    "tags": ["Minimalista", "Elegante", "Moderno"],
+    "description": "Diseño minimalista con líneas depuradas"
+  },
+  "007.jpg": {
+    "title": "Obra 007",
+    "tags": ["Contemporáneo", "Urbano", "Arte"],
+    "description": "Obra de estilo urbano contemporáneo"
+  },
+  "009.jpg": {
+    "title": "Obra 009",
+    "tags": ["Experimental", "Único", "Innovador"],
+    "description": "Pieza experimental con técnicas innovadoras"
+  },
+  "010.jpg": {
+    "title": "Obra 010",
+    "tags": ["Artístico", "Original", "Creativo"],
+    "description": "Creación original con estilo único"
+  }
+}
