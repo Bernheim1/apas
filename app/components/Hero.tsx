@@ -16,7 +16,7 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#1c1917]">
-      {/* Imágenes de fondo con parallax sutil */}
+      {/* Imágenes de fondo con transición suave */}
       {heroImages.map((img, index) => (
         <div
           key={img}
@@ -45,12 +45,9 @@ export default function Hero() {
         }}
       ></div>
 
-      {/* Racing stripes decorativas sutiles */}
-      <div className="absolute left-0 top-1/3 w-24 h-1.5 bg-brand-yellow/40 rounded-r-full animate-slide-in-left"></div>
-      <div className="absolute left-0 top-1/3 mt-3 w-16 h-1 bg-brand-red/40 rounded-r-full animate-slide-in-left" style={{ animationDelay: '0.2s' }}></div>
-      
-      <div className="absolute right-0 top-1/3 w-24 h-1.5 bg-brand-yellow/40 rounded-l-full animate-slide-in-right"></div>
-      <div className="absolute right-0 top-1/3 mt-3 w-16 h-1 bg-brand-red/40 rounded-l-full animate-slide-in-right" style={{ animationDelay: '0.2s' }}></div>
+      {/* Líneas decorativas sutiles */}
+      <div className="absolute left-0 top-1/3 w-20 h-1 bg-brand-yellow/30 rounded-r-full animate-slide-in-left"></div>
+      <div className="absolute right-0 top-1/3 w-20 h-1 bg-brand-red/30 rounded-l-full animate-slide-in-right"></div>
 
       {/* Contenido principal */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-16">
@@ -79,24 +76,24 @@ export default function Hero() {
             {/* Headline potente pero sobrio */}
             <div className="space-y-5">
               <h1 className="font-race text-5xl md:text-6xl lg:text-7xl text-brand-cream leading-[1.1] tracking-tight">
-                Gráficas que
+                Arte gráfico
                 <br />
-                <span className="text-brand-yellow">cuentan historia</span>
+                <span className="text-brand-yellow">con identidad</span>
               </h1>
               
-              {/* Racing stripe decorativa */}
-              <div className="flex items-center gap-1.5 w-fit">
-                <div className="h-1.5 w-20 bg-brand-red rounded-full"></div>
-                <div className="h-1.5 w-14 bg-brand-yellow rounded-full"></div>
-                <div className="h-1.5 w-10 bg-brand-cream/60 rounded-full"></div>
+              {/* Línea decorativa */}
+              <div className="flex items-center gap-2 w-fit">
+                <div className="h-1 w-16 bg-brand-red rounded-full"></div>
+                <div className="h-1 w-12 bg-brand-yellow rounded-full"></div>
+                <div className="h-1 w-8 bg-brand-cream/50 rounded-full"></div>
               </div>
             </div>
 
             {/* Subtítulo evocador */}
             <p className="text-xl md:text-2xl text-brand-cream/85 font-light max-w-xl leading-relaxed">
-              Cuadros y chapas con identidad automotriz.
+              Cuadros y chapas decorativas con personalidad.
               <span className="block mt-3 text-brand-yellow/70 text-base">
-                Diseño heritage para garages, talleres y espacios con carácter.
+                Diseño vintage actualizado para espacios con carácter.
               </span>
             </p>
 
@@ -116,7 +113,7 @@ export default function Hero() {
                   <span className="text-brand-red text-lg">★</span>
                 </div>
                 <span className="text-brand-cream/80 text-sm font-medium">
-                  Estética atemporal
+                  Estética única
                 </span>
               </div>
               
@@ -125,7 +122,7 @@ export default function Hero() {
                   <span className="text-brand-yellow text-lg">◆</span>
                 </div>
                 <span className="text-brand-cream/80 text-sm font-medium">
-                  Heritage automotor
+                  Estilo atemporal
                 </span>
               </div>
             </div>
@@ -163,10 +160,10 @@ export default function Hero() {
               <div className="relative">
                 <div className="font-race text-4xl text-brand-brown/40 mb-3">01</div>
                 <div className="text-brand-brown font-bold uppercase tracking-wider text-sm mb-2">
-                  Heritage
+                  Vintage
                 </div>
                 <p className="text-brand-brown/70 text-xs leading-relaxed">
-                  Inspirado en la era dorada del automovilismo
+                  Inspiración en el diseño clásico
                 </p>
               </div>
             </div>
@@ -180,7 +177,7 @@ export default function Hero() {
                   Artesanal
                 </div>
                 <p className="text-brand-brown/70 text-xs leading-relaxed">
-                  Cada pieza diseñada con atención al detalle
+                  Cuidado en cada detalle
                 </p>
               </div>
             </div>
@@ -191,10 +188,10 @@ export default function Hero() {
               <div className="relative">
                 <div className="font-race text-4xl text-brand-brown/40 mb-3">03</div>
                 <div className="text-brand-brown font-bold uppercase tracking-wider text-sm mb-2">
-                  Identidad
+                  Carácter
                 </div>
                 <p className="text-brand-brown/70 text-xs leading-relaxed">
-                  Gráficas que expresan pasión automotriz
+                  Piezas que expresan personalidad
                 </p>
               </div>
             </div>
@@ -205,10 +202,10 @@ export default function Hero() {
               <div className="relative">
                 <div className="font-race text-4xl text-brand-brown/40 mb-3">04</div>
                 <div className="text-brand-brown font-bold uppercase tracking-wider text-sm mb-2">
-                  Atemporal
+                  Contemporáneo
                 </div>
                 <p className="text-brand-brown/70 text-xs leading-relaxed">
-                  Diseño clásico con visión contemporánea
+                  Retro con visión moderna
                 </p>
               </div>
             </div>
