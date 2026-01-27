@@ -26,9 +26,9 @@ export default function Colocar() {
     },
     {
       number: 3,
-      title: "Colocar tu Obra",
+      title: "Colocar tu Apa",
       description:
-        "Con cuidado, coloca tu obra de arte sobre los soportes. Ajusta la posición hasta conseguir el ángulo perfecto y disfruta de tu nueva decoración.",
+        "Con cuidado, coloca tu apa sobre los soportes. Ajusta la posición hasta conseguir el ángulo perfecto y disfruta de tu nueva decoración.",
       image: "/como-colocar/colocar.png",
       bgColor: "bg-[#faf0e4]", // Crema
       textColor: "text-[#241917]",
@@ -47,7 +47,7 @@ export default function Colocar() {
             </h2>
           </div>
           <p className="text-brand-cream/70 text-base md:text-lg max-w-2xl mx-auto mt-6 md:mt-8 font-rajdhani px-4">
-            Sigue estos simples pasos para instalar tu obra de arte de manera
+            Sigue estos simples pasos para instalar tu apa de manera
             segura y profesional
           </p>
         </div>

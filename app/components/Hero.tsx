@@ -137,7 +137,7 @@ export default function Hero() {
                 href="#como-colocar"
                 className="bg-transparent hover:bg-brand-cream/10 text-brand-cream border-2 border-brand-cream/30 hover:border-brand-yellow hover:text-brand-yellow font-race tracking-wider py-4 px-8 lg:py-5 lg:px-12 rounded-[25px] transition-all duration-300 uppercase text-sm lg:text-base hover:scale-105"
               >
-                Cómo Colocarlas ?
+                Cómo Colocar
               </a>
             </div>
           </div>

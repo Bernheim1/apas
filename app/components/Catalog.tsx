@@ -7,6 +7,7 @@ interface ImageMetadata {
   title: string;
   tags: string[];
   description: string;
+  images?: string[];
 }
 
 interface CatalogProps {
@@ -39,6 +40,8 @@ export default function Catalog({ images, metadata }: CatalogProps) {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
+  const [showFilters, setShowFilters] = useState(false);
+  const [carouselIndex, setCarouselIndex] = useState(0);
 
   const getImageData = (img: string) => {
     return metadata[img] || {
@@ -106,25 +109,47 @@ export default function Catalog({ images, metadata }: CatalogProps) {
                 catálogo
               </h2>
             </div>
-            <p className="text-brand-brown/70 text-base md:text-lg max-w-2xl mx-auto mt-6 md:mt-8 font-rajdhani px-4">
-              Descubre nuestra colección exclusiva de obras de arte
-            </p>
           </div>
 
           {/* Buscador */}
-          <div className="mb-8">
-            <div className="max-w-2xl mx-auto">
-              <div className="relative">
-                <input
-                  type="text"
-                  placeholder="Buscar por título o descripción..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full px-6 py-4 pr-12 rounded-[25px] border-2 border-brand-brown/20 focus:border-brand-yellow focus:outline-none bg-white text-brand-brown placeholder:text-brand-brown/40 transition-colors"
-                />
-                <div className="absolute right-4 top-1/2 -translate-y-1/2">
+          <div className="mb-2">
+            <div className="max-w-7xl mx-auto">
+              <div className="flex gap-3 items-center">
+                <div className="flex-1 relative">
+                  <input
+                    type="text"
+                    placeholder="Buscar por título o descripción..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="w-full px-6 py-4 pr-12 rounded-[25px] border-2 border-brand-brown/20 focus:border-brand-yellow focus:outline-none bg-white text-brand-brown placeholder:text-brand-brown/40 transition-colors"
+                  />
+                  <div className="absolute right-4 top-1/2 -translate-y-1/2">
+                    <svg
+                      className="w-6 h-6 text-brand-brown/40"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <button
+                  onClick={() => setShowFilters(!showFilters)}
+                  className={`px-6 py-4 rounded-[25px] border-2 transition-all duration-300 flex items-center gap-2 ${
+                    showFilters
+                      ? "bg-brand-yellow text-brand-brown border-brand-yellow"
+                      : "bg-white text-brand-brown border-brand-brown/20 hover:border-brand-yellow"
+                  }`}
+                  title="Filtros"
+                >
                   <svg
-                    className="w-6 h-6 text-brand-brown/40"
+                    className="w-6 h-6"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -133,17 +158,25 @@ export default function Catalog({ images, metadata }: CatalogProps) {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth={2}
-                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                      d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"
                     />
                   </svg>
-                </div>
+                </button>
               </div>
             </div>
           </div>
 
           {/* Filtros */}
-          <div className="mb-12">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-6">
+          <div 
+            className={`mb-12 overflow-hidden transition-all duration-500 ease-in-out ${
+              showFilters ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+            }`}
+            style={{ transformOrigin: 'top' }}
+          >
+            <div className={`transition-transform duration-500 ease-in-out ${
+              showFilters ? 'translate-y-0 scale-y-100' : '-translate-y-4 scale-y-95'
+            }`}>
+              <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-6">
               <h3 className="font-race text-brand-brown text-xl tracking-wider">
                 filtrar por categoría
               </h3>
@@ -175,14 +208,15 @@ export default function Catalog({ images, metadata }: CatalogProps) {
                 );
               })}
             </div>
+            </div>
           </div>
 
           {/* Contador de resultados */}
           <div className="mb-6">
             <p className="text-brand-brown/60 text-sm">
               {filteredImages.length === images.length
-                ? `Mostrando todas las obras (${images.length})`
-                : `Mostrando ${filteredImages.length} de ${images.length} obras`}
+                ? `Mostrando todas las apas (${images.length})`
+                : `Mostrando ${filteredImages.length} de ${images.length} apas`}
             </p>
           </div>
 
@@ -201,12 +235,15 @@ export default function Catalog({ images, metadata }: CatalogProps) {
                   {/* Card container - altura fija */}
                   <div
                     className="bg-white rounded-[25px] overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 flex flex-col h-full cursor-pointer"
-                    onClick={() => setSelectedImage(img)}
+                    onClick={() => {
+                      setSelectedImage(img);
+                      setCarouselIndex(0);
+                    }}
                   >
                     {/* Imagen del producto - altura fija */}
                     <div className="relative aspect-[3/4] overflow-hidden bg-brand-cream">
                       <Image
-                        src={`/cuadros/${img}`}
+                        src={`/cuadros/${hoveredIndex === originalIndex && imageData.images && imageData.images.length > 0 ? imageData.images[0] : img}`}
                         alt={imageData.title}
                         fill
                         className="object-cover transition-all duration-700 group-hover:scale-110"
@@ -262,7 +299,7 @@ export default function Catalog({ images, metadata }: CatalogProps) {
           {filteredImages.length === 0 && (
             <div className="text-center py-20">
               <p className="text-brand-brown/50 text-xl mb-4">
-                No se encontraron obras con los criterios seleccionados
+                No se encontraron apas con los criterios seleccionados
               </p>
               <button
                 onClick={clearFilters}
@@ -277,7 +314,7 @@ export default function Catalog({ images, metadata }: CatalogProps) {
           {(!images || images.length === 0) && (
             <div className="text-center py-20">
               <p className="text-brand-brown/50 text-xl">
-                No hay obras disponibles en este momento
+                No hay apas disponibles en este momento
               </p>
             </div>
           )}
@@ -305,24 +342,85 @@ export default function Catalog({ images, metadata }: CatalogProps) {
             {/* Contenido scrolleable */}
             <div className="overflow-y-auto">
               <div className="grid md:grid-cols-2">
-                {/* Imagen ampliada */}
+                {/* Imagen ampliada con carrusel */}
                 <div className="relative aspect-square md:aspect-auto md:min-h-[600px] bg-brand-cream">
-                  <Image
-                    src={`/cuadros/${selectedImage}`}
-                    alt={getImageData(selectedImage).title}
-                    fill
-                    className="object-contain p-4 md:p-8"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
+                  {(() => {
+                    const imageData = getImageData(selectedImage);
+                    const allImages = [selectedImage, ...(imageData.images || [])];
+                    const currentImage = allImages[carouselIndex];
+                    
+                    return (
+                      <>
+                        <Image
+                          src={`/cuadros/${currentImage}`}
+                          alt={imageData.title}
+                          fill
+                          className="object-contain p-4 md:p-8"
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                        />
+                        
+                        {/* Controles del carrusel */}
+                        {allImages.length > 1 && (
+                          <>
+                            {/* Botón anterior */}
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                setCarouselIndex((prev) => (prev === 0 ? allImages.length - 1 : prev - 1));
+                              }}
+                              className="absolute left-4 top-1/2 -translate-y-1/2 bg-brand-brown/80 hover:bg-brand-yellow text-white hover:text-brand-brown w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg z-10"
+                            >
+                              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                              </svg>
+                            </button>
+                            
+                            {/* Botón siguiente */}
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                setCarouselIndex((prev) => (prev === allImages.length - 1 ? 0 : prev + 1));
+                              }}
+                              className="absolute right-4 top-1/2 -translate-y-1/2 bg-brand-brown/80 hover:bg-brand-yellow text-white hover:text-brand-brown w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg z-10"
+                            >
+                              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                              </svg>
+                            </button>
+                            
+                            {/* Indicadores */}
+                            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                              {allImages.map((_, idx) => (
+                                <button
+                                  key={idx}
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    setCarouselIndex(idx);
+                                  }}
+                                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                                    idx === carouselIndex
+                                      ? "bg-brand-yellow w-6"
+                                      : "bg-brand-brown/40 hover:bg-brand-brown/70"
+                                  }`}
+                                />
+                              ))}
+                            </div>
+                          </>
+                        )}
+                      </>
+                    );
+                  })()}
                 </div>
 
                 {/* Detalles */}
                 <div className="p-6 md:p-12 flex flex-col justify-center bg-brand-cream">
                   <div className="mb-6">
-                    <div className="inline-block bg-brand-red text-white font-race text-sm px-4 py-2 rounded-[25px] mb-4 shadow-lg">
-                      # {String(images.indexOf(selectedImage) + 1).padStart(3, "0")}
+                    <div className="flex justify-center mb-4">
+                      <div className="bg-brand-red text-white font-race text-xl md:text-2xl px-8 py-3 rounded-[25px] shadow-lg">
+                        # {String(images.indexOf(selectedImage) + 1).padStart(3, "0")}
+                      </div>
                     </div>
-                    <div className="h-1 w-16 bg-brand-red mb-6 rounded-[25px]"></div>
+                    <div className="h-1 w-[90%] mx-auto bg-brand-red mb-6 rounded-[25px]"></div>
                     <p className="text-brand-brown/80 text-base md:text-lg mb-6 leading-relaxed">
                       {getImageData(selectedImage).description}
                     </p>
@@ -355,9 +453,14 @@ export default function Catalog({ images, metadata }: CatalogProps) {
                     </div>
                   )}
 
-                  <button className="w-full bg-brand-red hover:bg-brand-yellow text-white hover:text-brand-brown font-race tracking-wider py-3 md:py-4 px-6 md:px-8 rounded-[25px] transition-all duration-300 uppercase text-xs md:text-sm shadow-lg">
+                  <a
+                    href={`https://wa.me/541122677318?text=${encodeURIComponent(`Hola! Me interesa consultar sobre la APA #${String(images.indexOf(selectedImage) + 1).padStart(3, "0")}`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full bg-brand-red hover:bg-brand-yellow text-white hover:text-brand-brown font-race tracking-wider py-3 md:py-4 px-6 md:px-8 rounded-[25px] transition-all duration-300 uppercase text-xs md:text-sm shadow-lg text-center block"
+                  >
                     Consultar Disponibilidad
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>

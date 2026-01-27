@@ -2,7 +2,8 @@
   "001.jpg": {
     "title": "Obra 001",
     "tags": ["Abstracto", "Moderno", "Colorido"],
-    "description": "Obra original única con estilo contemporáneo"
+    "description": "Obra original única con estilo contemporáneo",
+    "images": ["002.jpg", "005.jpg"]
   },
   "002.jpg": {
     "title": "Obra 002",
